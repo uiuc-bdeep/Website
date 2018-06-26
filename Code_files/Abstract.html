@@ -1,64 +1,76 @@
 <!--
-    This is the Abstract with hover function at Research page. In Squarespace, <style></style>, <div></div> and <script></script> have to put into different containers. The former part is inserted through 'codebox' option, the latter part is inserted through 'header code injection'.
+    This is the Abstract with hover function at Research page. In Squarespace, html and have to put into different containers. 
+The <div></div> part is inserted through 'codebox' option, the <script></script> part is inserted through 'header code injection'.
 -->
 
-
 <html>
- <style>
-    
- #data{
-    /*width: auto;*/
-    height: 11.7em; 
-    line-height: 1.3em; 
-    text-overflow: ellipsis;
-    text-align: left;
-}  
-
-#data:hover{
-    overflow: visible; 
-    white-space: normal; 
-    height: auto;
-    width: auto;
-    /*-webkit-text-size-adjust: auto;*/
-}
-
-</style>
 
 <!-- Please make sure the id should match -->
-
-<div id = "data" style = "text-align: justify;"><p id = "abstract1">  </p></div>
-
+<!-- The following lines are put into code box separately to its corresponding position -->
+<div style = "text-align: justify;"><p id = "abstract1" onmouseover = "mouseOver(id)" onmouseout = "mouseOut(id)"> </p>   
+</div>
+<div style = "text-align: justify;"><p id = "abstract2" onmouseover = "mouseOver(id)" onmouseout = "mouseOut(id)"> </p>   
+</div>
+    
 <script type="text/javascript">
-  window.onload = function(){
-  var url_dict = {
+  var lengthText = 600;
+    var url_dict = {
 
   /* Please add project name and its GitHub url of here, and pay attention to matching the id */
 
   /*Flint project*/
-  'abstract1':'https://raw.githubusercontent.com/GHAliceC/bdeep_test/master/abs.tex',
+  'abstract1':'https://raw.githubusercontent.com/uiuc-bdeep/Website/master/Content_files/Environmental_Crises_Flint/abs.tex',
   /*Sao paulo Conjection*/
-  'abstract2':'https://raw.githubusercontent.com/uiuc-bdeep/sao-paulo/master/abs.tex'};
+  'abstract2':'https://raw.githubusercontent.com/uiuc-bdeep/Website/master/Content_files/Flood_Delay_Sao_Paulo/abs.tex'};
 
 var ids = ["abstract1","abstract2"];
+var abs = {};
 var i = 0;
 
-for (;ids[i];i++) {
+for(;ids[i];i++) {
   var x = new XMLHttpRequest();
   x.open('GET', url_dict[ids[i]], false);
   x.send(null);
   var s = x.responseText;
-  console.log(s);
+  // console.log(s);
   var head = s.search("begin{abstract}");
-  console.log(head);
+  // console.log(head);
   var tail = s.search("end{abstract}");
-  console.log(tail);
+  // console.log(tail);
   s = s.substring(head+16, tail-1);
   //s = s.trim();
   s = s.replace("\\","");
-  var element = document.getElementById(ids[i]);
-  element.innerHTML = '<b>Abstract:</b>' + s;
+  abs[ids[i]] = s;
+
 }
-  }
+  
+  
+    function mouseOver(str){
+    element = document.getElementById(str);
+    element.innerHTML = '<b>Abstract:</b>' + abs[str];
+    }
+  function mouseOut(str){
+    element = document.getElementById(str);
+    shortText = element.innerHTML.substring(0,lengthText) + "...";
+    element.innerHTML = shortText;
+    }
+  
+ window.onload = function(){ 
+   var i = 0;
+for(;ids[i];i++) {
+  var element = document.getElementById(ids[i]);
+  element.innerHTML = '<b>Abstract:</b>' + abs[ids[i]];
+    var text = element.innerHTML;
+  //var text = document.getElementById(ids[i]).textContent;
+  var shortText = text.substring(0,lengthText) + "...";
+  element.innerHTML = shortText;
+}
+
+  //abs.addEventListener("mouseover", mouseOver);
+  //abs.addEventListener("mouseout", mouseOut);
+
+  
+}
 </script>
 
 </html>
