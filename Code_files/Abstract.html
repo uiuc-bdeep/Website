@@ -1,0 +1,65 @@
+<!--
+    This is the Abstract with hover function at Research page. In Squarespace, <style></style>, <div></div> and <script></script> have to put into different containers. The former part is inserted through 'codebox' option, the latter part is inserted through 'header code injection'.
+-->
+
+
+<html>
+ <style>
+    
+ #data{
+    /*width: auto;*/
+    height: 11.7em; 
+    line-height: 1.3em; 
+    text-overflow: ellipsis;
+    text-align: left;
+}  
+
+#data:hover{
+    overflow: visible; 
+    white-space: normal; 
+    height: auto;
+    width: auto;
+    /*-webkit-text-size-adjust: auto;*/
+}
+
+</style>
+
+<!-- Please make sure the id should match -->
+
+<div id = "data" style = "text-align: justify;"><p id = "abstract1">  </p></div>
+
+<script type="text/javascript">
+  window.onload = function(){
+  var url_dict = {
+
+  /* Please add project name and its GitHub url of here, and pay attention to matching the id */
+
+  /*Flint project*/
+  'abstract1':'https://raw.githubusercontent.com/GHAliceC/bdeep_test/master/abs.tex',
+  /*Sao paulo Conjection*/
+  'abstract2':'https://raw.githubusercontent.com/uiuc-bdeep/sao-paulo/master/abs.tex'};
+
+var ids = ["abstract1","abstract2"];
+var i = 0;
+
+for (;ids[i];i++) {
+  var x = new XMLHttpRequest();
+  x.open('GET', url_dict[ids[i]], false);
+  x.send(null);
+  var s = x.responseText;
+  console.log(s);
+  var head = s.search("begin{abstract}");
+  console.log(head);
+  var tail = s.search("end{abstract}");
+  console.log(tail);
+  s = s.substring(head+16, tail-1);
+  //s = s.trim();
+  s = s.replace("\\","");
+  var element = document.getElementById(ids[i]);
+  element.innerHTML = '<b>Abstract:</b>' + s;
+}
+  }
+</script>
+
+</html>
+   

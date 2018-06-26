@@ -1,0 +1,47 @@
+<!--
+	This is the Comment box aims to achieve one-way cmmunication from BDEEP website and Slack(#email) channel.
+-->
+
+<html>
+<body>
+  <div style = "text-align:center;">
+    <p><b>Name: </b><textarea id = "name" rows = "1" cols = "30" placeholder = "Please provide your name here..."></textarea>
+    </p>
+    <p><b>Email: </b><textarea id = "email" rows = "1" cols = "30" placeholder = "Please leave your email here..."></textarea>      
+    </p>
+	<textarea id = "meg" rows = "10" cols = "50" placeholder = "Message left here goes straight to our Slack!"></textarea>
+	<br>
+	<br>
+	<button id = "btn" value = "clear">
+	Send Message
+	</button>
+  </div>
+
+
+<!--for more information about sending forms through JavaScript,
+	please check this blog:https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Sending_forms_through_JavaScript-->
+	
+<script type="text/javascript">
+	window.onload = function(){
+		document.getElementById("btn").onclick = function(){
+			var url = "https://hooks.slack.com/services/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"
+			var x = document.getElementById("meg").value;
+			var y = document.getElementById("email").value;
+		    var z = document.getElementById("name").value;
+			var po = "Visiter: "+z+"\nEmail: "+y+" \nComments: "+x;
+			var payload= {"text": po };
+		        
+	        var http = new XMLHttpRequest();
+			http.open('POST', url, true);
+			http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+			http.send(JSON.stringify(payload));
+			document.getElementById("name").value = "";
+			document.getElementById("email").value = "";
+			document.getElementById('meg').value = 'Thank you for your message!';
+			}
+		}
+</script>
+</body>
+</html>
+

@@ -1,0 +1,66 @@
+<!--
+	This is the About page content. Please pay attention to the <a></a> hyperlinks. For those includes 'squarespace.com', we have to change the corresponding pages if we use external tools to create website.
+-->
+
+
+<html>
+<!-- Here shows the headder for the About Page -->
+<h1 style = "text-align:center;"><font size = "+4" style = "line-height:1.5;">BDEEP</font><br>
+Big Data Environmental Economics and Policy Group<br>
+</h1>
+
+<style>
+div{text-align: justify;}
+</style>
+
+<div>Our team is focused on understanding and addressing wide range of problems in urban and environmental economics. Research topics include: <a href = "http://www.pnas.org/content/early/2018/05/08/1713628115/" target = "_blank">climate change policy</a>, <a href = "https://www.sciencedirect.com/science/article/pii/S0166046216300266" target = "_blank">urban growth and expansion</a>,<a href = "https://peter-christensen-pe55.squarespace.com/speed-lim" target = "_blank">transportation policy</a>, <a href = "https://peter-christensen-pe55.squarespace.com/flint" target = "_blank">urban drinking water</a>, <a href = "https://peter-christensen-pe55.squarespace.com/housing-discrimination" target = "_blank">housing discrimination and locational choice</a>, and <a href = "https://peter-christensen-pe55.squarespace.com/public-goods" target = "_blank">the relationship between crime and environmental amenities in cities</a>. We integrate the methodologies of applied microeconomics and data science and have developed a software stack that enable the acquisition and analysis of a wide range of information sets in observational research and experimental trials.  We have worked with a wide range of partners to bring new technological platforms and data sources into economic research, including Zillow.com, Uber Technologies, AirDNA, and Google.  Please take a look at our <a href = "https://peter-christensen-pe55.squarespace.com/research-v2" target = "_blank">current projects</a> and our <a href = "https://github.com/uiuc-bdeep" target = "_blank">GitHub</a> for examples of our research.</div>
+
+<h2>Infrastructure</h2>
+<div>
+We employ a set of technical tools to enable the acquisition and analysis of large datasets in observational research and experimental trials. Our infrastructure is designed to support a continuously integrated pipeline that includes the following primary components:
+<br>
+<ul style = "list-style-position: outside;">
+<li>Acquire large datasets.</li>
+<li>Store large datasets in a fully secure system.</li>
+<li>Pre-process and integrate datasets.</li>
+<li>Run economic analysis.</li>
+<li>Host fully replicable and continuously updating datasets and applications.</li>
+<li>Compile and continuously update documents for journal publication and graphics for web-based     	
+publication.</li>
+</ul>
+</div></br>
+Here is the <a href =  "https://docs.google.com/drawings/d/1TL8k7W_HhAPTtSesCjuk_51hs-XmdTlsfygc4n3us_w/edit" target = "_blank">BDEEP Infrastructure Pipeline</a>.
+
+<h2>Acquisition of Information</h2> 
+<div><p>Traffic delays, housing transactions, social media posts, pollution concentrations, and satellite observations are examples of data we regularly query. We build tools to facilitate the acquisition of these datasets. Different data sources are queried at different rates and using different protocols.  For example, data are downloaded from monitoring websites, at discrete intervals and sometimes in real-time. Scripts are built to acquire data through downloading, scraping, crawling, or directly engaging with users of applications.</p>
+<p>Scripts run in <a href = "https://www.docker.com" target = "_blank">Docker</a> containers. Scripts are scheduled to execute in accordance with the research design of a project.  Docker containers allow developers and system administrators to isolate applications and allow them to run in a consistent environment regardless of which machine they are running on. BDEEP uses Docker for the vast majority of its applications.</p></div>
+
+<h2>Store</h2>
+<div><p>In some cases, we store individual files (JSON, CSV, RDS, SHP, TIFF, etc.), but more often computational efficiencies or other empirical protocols require database storage (e.g. MongoDB, SQL). Our infrastructure allows us to store large datasets and allow group members to access and / or query these datasets. BDEEP uses <a href = "https://www.samba.org/" target = "_blank">samba</a> to host a shared network as well as an Active Directory server. The shared network allows members of our team to collaborate through a common network-mounted directory.</p>
+<p>The <a href = "https://en.wikipedia.org/wiki/Active_Directory" target = "_blank">Active Directory</a> server uses samba. Active Directory allows us to maintain a credential server. This credential server allows us to add, delete, or modify of user credentials in the same place. Currently, it is only used to access the shared network, but it also has a range of other applications.</p> 
+<p>We recently added a Postgres database to our infrastructure. Since R is an in-memory operation language, many of large datasets encounter “out-of-RAM” errors during operations on larger data objects. Our PostGres Database serves as a tool to handle the partitioning, subsetting, and merging operations for those larger datasets. This allows us to work more efficiently because we are able to query the rows or columns we need for analysis instead of loading entire datasets into R. We are planning on developing a warehouse for the datasets that are stored using our Postgres database.</p> 
+<p>Finally, we use AWS for backing up our files on a weekly basis.</p> 
+</div>
+
+<h2>Analyze</h2>
+<div>All BDEEP team members are able to access BDEEP project files on our shared network. BDEEP members perform data analysis using a RStudio server which they can access through a web browser window. <a href = "https://www.r-project.org/" target = "_blank">R</a> is an increasingly widespread programming language in economics and data science. For information on how we set up RStudioServer on our cloud see: <a href = "https://wiki.ncsa.illinois.edu/display/BDEEP/Installing+RStudioServer+on+Ubuntu+15.04" target = "_blank">Installing RStudioServer on Ubuntu 15.04.</a></div>
+
+<h2>Communicate</h2>
+<div><p>The results of our research are directly compiled and continuously updated in for-publication documents and presentations using a system that is based on <a href = "http://www.latex-project.org/" target = "_blank_">Latex</a>. Key graphs, tables, maps and other figures are simultaneously hosted directly on our website in standard and more interactive formats (ex. <a href = "https://d3js.org/" target = "_blank">d3.js</a>, <a href = "http://shiny.rstudio.com/" target = "_blank">shiny</a>). This increases public engagement with our research and allows us to be transparent about our findings.</p>
+<p>In keeping with standards for <a href = "https://www.r-bloggers.com/what-is-reproducible-research/" target = "_blank">reproducible research</a>, all BDEEP team members are expected to maintain their code in <a href = "https://github.com/uiuc-bdeep" target = "_blank">BDEEP’s Github repositories</a>. Fellow researchers and interested members of the public will have access to our code and research methodology. </p>
+</div>
+
+<h2>Other Services/Requirements</h2>
+<div>We use a combination of cloud-based and computing infrastructure to manage ongoing projects and push the computational frontier of empirical research. We make use of both cloud-based (<a href = "https://www.openstack.org/" target = "_blank">OpenStack</a> - a cloud orchestration platform and AWS) and industry-standard computing clusters (the iForge/aForge Supercomputer Cluster at the National Center for Supercomputing Applications).</div>
+<p>
+Here is an overview of all the platforms used in BDEEP infrastructure:<a href = "https://docs.google.com/drawings/d/1L_E_hKMgKcfhPNjx58dJ-TXcJpLfGtDveQvz88arXjY/edit" target = "_blank"> Platforms</a>
+</p>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,113 @@
+<!--
+  This is project page(Sao Paulo project as an example). <script></script>tends to achieve 1)crawling the GiHub repository to get figures from target folder, and presenting them in a slideshow mood. 2)extracting abstract.tex file from folder and present it in a readable style.
+-->
+
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<span class="likebtn-wrapper" data-theme="youtube" data-white_label="true" data-identifier="item_1" data-popup_disabled="true"></span>
+
+<div class="w3-content w3-display-container">
+  <div style  = "text-align: center;" id = "imgbox">
+    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(- 1)">&#10094;</button>
+    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+  </div>
+</div>
+
+
+<script>
+	window.onload = function(){
+      /* Abstract */
+      var url_abs = 'https://raw.githubusercontent.com/uiuc-bdeep/sao-paulo/master/abs.tex';
+      var x = new XMLHttpRequest();
+      x.open('GET', url_abs, false);
+      x.send(null);
+      var s = x.responseText;
+      var head = s.search("begin{abstract}");
+      //console.log(head);
+      var tail = s.search("end{abstract}");
+      //console.log(tail);
+      s = s.substring(head+16, tail-1);
+      //s = s.trim();
+      if(s.includes("\\")){
+        s = s.replace("\\", "");
+      }
+      if(s.includes("$\alpha$")){
+        s = s.replace("$\alpha$", "α");
+      }
+      if(s.includes("$\beta$")){
+        s = s.replace("$\beta$", "β");
+      }
+      if(s.includes("$\gamma$")){
+        s = s.replace("$\gamma$","γ");
+      }
+      
+      var id = 'abstract2';
+      var element = document.getElementById(id);
+      element.innerHTML = '<b>Abstract:</b>' + s;
+
+       /* Slideshow for figures */
+      var url_figs = "https://api.github.com/repos/uiuc-bdeep/sao-paulo-congestion/contents/figures";
+      var request = new XMLHttpRequest();
+      request.open("GET", url_figs, false);
+      request.send(null);
+      var s = JSON.parse(request.responseText);
+      var list = [];
+      for(i in s){
+
+        if(s[i].download_url != undefined){
+
+          list.push(s[i].download_url);
+         }
+       }
+          //console.log(list[0])
+      for(i = 0; i < list.length; i++){
+      	if (i != 0){
+      		x.style.display = "none"; 
+      		} 	
+        var x = document.createElement("IMG");
+        x.setAttribute("src", list[i]);
+        x.setAttribute("class", "mySlides");
+        x.setAttribute("style", "width:400px; height:300px; margin:10px auto;");
+        document.getElementById("imgbox").appendChild(x);
+      }
+     }
+   </script>
+
+   <script>
+   	 
+    	var slideIndex = 1;
+    //showDivs(slideIndex);
+
+    	function plusDivs(n) {
+      		showDivs(slideIndex += n);
+    	}
+
+	   function showDivs(n) {
+	     var i;
+	     var x = document.getElementsByClassName("mySlides");
+	      if (n > x.length) {
+	       slideIndex = 1;
+	     }    
+	     if (n < 1) {
+	       slideIndex = x.length;
+	     }
+	     for (i = 0; i < x.length; i++) {
+	       x[i].style.display = "none";  
+	     }
+	     x[slideIndex-1].style.display = "block";  
+	   }
+	
+  </script>
+
+  </body>
+  <body>
+    <div style = "text-align: left;" id = "abstract2">
+</div>
+  </body>
+</html>
+
+</body>
+</html>
