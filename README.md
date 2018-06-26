@@ -3,7 +3,7 @@
 Our website based on a built-in domain at [Squarespace.com](https://www.squarespace.com/) and a thrid-party domain [AWS](https://aws.amazon.com/). Please access our website at [www.uiuc-bdeep.org](https://www.uiuc-bdeep.org/).
 
 ## Structure 
-This repository includes two folders. One is [Code_files]() storing the HTML, CSS, JavaScript files that embeded in the website; the other is [Content_files]() keeping projects' content that need to update.
+This repository includes two parts. One is [Code_files](https://github.com/uiuc-bdeep/Website/tree/master/Code_files) storing the HTML, CSS, JavaScript files that embeded in the website; the other is [Content_files](https://github.com/uiuc-bdeep/Website/tree/master/Content_files) keeping projects' content that show publicly.
 
 ```
 Website
