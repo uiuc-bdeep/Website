@@ -20,7 +20,7 @@
 <script>
 	window.onload = function(){
       /* Abstract */
-      var url_abs = 'https://raw.githubusercontent.com/uiuc-bdeep/sao-paulo/master/abs.tex';
+      var url_abs = 'https://raw.githubusercontent.com/uiuc-bdeep/Website/master/Content_files/Flood_Delay_Sao_Paulo/abs.tex';
       var x = new XMLHttpRequest();
       x.open('GET', url_abs, false);
       x.send(null);
@@ -49,7 +49,7 @@
       element.innerHTML = '<b>Abstract:</b>' + s;
 
        /* Slideshow for figures */
-      var url_figs = "https://api.github.com/repos/uiuc-bdeep/sao-paulo-congestion/contents/figures";
+      var url_figs = "https://api.github.com/repositories/138780358/contents/Content_files/Flood_Delay_Sao_Paulo/key_figures";
       var request = new XMLHttpRequest();
       request.open("GET", url_figs, false);
       request.send(null);
