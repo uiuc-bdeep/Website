@@ -1,6 +1,6 @@
 # BDEEP Website
 
-Our website based on a built-in domain at [Squarespace.com](https://www.squarespace.com/) and a thrid-party domain [AWS](https://aws.amazon.com/). Please access our website at [www.uiuc-bdeep.org](https://www.uiuc-bdeep.org/).
+Our website based on a built-in domain at [Squarespace.com](https://www.squarespace.com/) and a third-party domain at [AWS](https://aws.amazon.com/). It contains four pages: About(Group intro), Team(intro), Research, Contact. Website content including abstracts as well as key figures are crawling from [GitHub](https://www.github.com/uiuc-bdeep/Website/) and are updated automatically. Messages from Contact page will directly go to BDEEP group slack channel. Please visit [www.uiuc-bdeep.org](https://www.uiuc-bdeep.org/).
 
 ## Structure 
 This repository includes two parts. One is [Code_files](https://github.com/uiuc-bdeep/Website/tree/master/Code_files) storing the HTML, CSS, JavaScript files that embeded in the website; the other is [Content_files](https://github.com/uiuc-bdeep/Website/tree/master/Content_files) keeping projects' content that show publicly.
@@ -36,12 +36,14 @@ Website
 ```
 
 ## Modification Notes
+
 * For those who edit website design</br>
 `Abstract.html` : Crawling `Abstract.tex` and creating hover function for abstract on Research page</br>
-`ProjectPage.html` : Crawling `key_figures` and presenting them in a slideshow mood, Like button, full abstract</br>
+`ProjectPage.html` : Crawling `key_figures` and presenting them in a slideshow mood, Like&Share button, full abstract</br>
 `Comment.html` : Communicate website comment to slack channel #email</br>
+
 * For those who edit project content</br>
-`Abstract.tex`: Please check [How to commit changes on GitHub using ShareLaTeX](https://wiki.ncsa.illinois.edu/pages/viewpage.action?title=How+to+commit+changes+on+GitHub+using+ShareLaTeX&spaceKey=BDEEP) to synchronize your working paper from ShareLaTeX to your project folder</br>
+`Abstract.tex`: Please check [How to commit changes on GitHub using ShareLaTeX](https://wiki.ncsa.illinois.edu/pages/viewpage.action?title=How+to+commit+changes+on+GitHub+using+ShareLaTeX&spaceKey=BDEEP/) to synchronize your working paper from ShareLaTeX to your project folder. NOTE: Please keep the original format!</br>
 `key_figures`: Please pick out figures that you want to show in the website and synchronize them to your project folder</br>
 
 
