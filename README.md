@@ -9,7 +9,7 @@ This repository includes two parts. One is [Code_files](https://github.com/uiuc-
 Website
 +--README.md
 +--Code_files
-|  +--[About.html](https://github.com/uiuc-bdeep/Website/blob/master/Code_files/About.html)
+|  +--About.html
 |  +--Abstract.html
 |  +--RecentPub.html
 |  +--ProjectPage.html
