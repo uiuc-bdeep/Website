@@ -1,0 +1,140 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
+
+\reversemarginpar
+\newcommand{\MarginText}[1]{\leavevmode\marginpar{\raggedleft#1}\ignorespaces}
+\usepackage{enumitem}
+
+\name{Peter Christensen} % Your name
+\address{431 Mumford Hall \\ 1301 W. Gregory Dr.} % Your address
+\address{University of Illinois, Urbana-Champaign} % Your secondary addess (optional)
+\address{\bf Office: 217-300-3054 \\ Email: pchrist@illinois.edu} % Your phone number and email
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS PREAMBLE
+%----------------------------------------------------------------------------------------
+
+
+\documentclass[10pt,a4paper]{article}
+
+%COMPILING: IMPORTANT INFORMATION
+% You'll need to generate a .bbl file from
+% the .bib file first, otherwise the publications
+% will not show up in the cv.
+
+% in TeXstudio, this means
+% 1. F1 or F6 for usual compiling (generate .aux)
+% 1. F8 for bibliography compiling (generate .bbl)
+% 2. F1 or F6 for usual compiling once more(generate .pdf)
+
+% use your favourite citation style here
+\usepackage{apacite}
+
+\usepackage[left=2.5cm,right=2.5cm,top=1.5cm,bottom=2.5cm]{geometry}
+
+
+% as bibentry and hyperref clash in some cases, this is a workaround
+% as suggested by the following two links:
+%https://tex.stackexchange.com/questions/227933/using-bibentry-to-cite-in-text-reference-with-apacite
+% and
+%https://tex.stackexchange.com/questions/65348/clash-between-bibentry-and-hyperref-with-bibstyle-elsart-harv/65401#65401
+\usepackage{bibentry}
+\makeatletter\let\saved@bibitem\@bibitem\makeatother
+\usepackage[colorlinks=true]{hyperref}
+\makeatletter\let\@bibitem\saved@bibitem\makeatother
+
+
+% hanging publications: 1st line starts at beginning of line, 
+% further lines are placed a bit to the right
+\usepackage{hanging}
+\newcommand\publication[1]{%
+	\smallskip\par\hangpara{1.5em}{1}\bibentry{#1}\smallskip
+}
+
+%-----------------------------------------------------------------------
+
+\begin{document}
+% bibliography
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Professional Preparation}
+
+
+{\bf B.A. Psychology, Summa Cum Laude, University of California, Davis}  \hfill {2004} \\
+{\bf M.E.Sc. Environmental Economics and Policy (concentration), Yale F\&ES}  \hfill {2009} \\
+{\bf Ph.D. Environmental and Resource Economics, Yale University}  \hfill { 2015}  \\
+
+\end{rSection}
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Appointments}
+{\bf Assistant Professor}  \hfill { 2015-}  \\
+{Department of Agricultural and Consumer Economics} \\
+{University of Illinois, Urbana-Champaign} \\
+{\bf Core Faculty Member}  \hfill { 2016-}  \\
+{National Center for Supercomputing Applications} \\
+\end{rSection}
+%%-------------------------------------------------------------------------
+\begin{rSection}{Products Most Related to Proposed Project (i)}
+\MarginText{\nobibliography{publications.bib}}
+\publication{christensen2018sorting}
+\publication{albouyunlocking}
+\publication{flintwater}
+\end{rSection}
+
+\begin{rSection}{Other Significant Products (ii)}
+\MarginText{\nobibliography{publications.bib}}
+\publication{gillingham2018forthcoming}
+\publication{christensen2018uncertainty}
+\publication{christensen2016geographic}
+\publication{christensenwedge}
+\end{rSection}
+\clearpage
+
+\begin{rSection}{Synergistic Activities}
+{\bf Manager and PI,} {Big Data for Environmental Economics and Policy Research Team}  \hfill { 2016-} \\
+{University of Illinois, Urbana-Champaign}\\
+{\bf Collaborator,} {Zillow, Housing Market Data for Research Program (ZTRAX)}  \hfill { 2016-} \\
+{\bf Developed PhD Curriculum,} {Data Science for Applied Microeconomics,}  \hfill { 2016-} \\
+{University of Illinois, Urbana-Champaign}\\
+{\bf Taught,} {Data Science for Applied Microeconomics,}  \hfill { 2016-} \\
+{University of Illinois, Urbana-Champaign}\\
+{\bf Taught,} {Environmental Economics (ACE 210), University of Illinois, Urbana-Champaign}  \hfill { 2015-} \\
+
+
+\end{rSection}
+
+
+
+
+
+\bibliographystyle{apalike}
+\end{document}
