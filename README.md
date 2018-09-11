@@ -15,6 +15,8 @@ Website
 |  +--ProjectPage.html
 |  +--Comment.html
 +--Content_files
+|  +--CurriculumVitae
+|  |  +--CurriculumVitae.pdf
 |  +--Public_Good_Complementarity
 |  |  +--Abstract.tex(naming can be alternative)
 |  |  +--key_figures
@@ -43,7 +45,8 @@ Website
 `Comment.html` : Communicate website comment to slack channel #email</br>
 
 * For those who edit project content</br>
-`Abstract.tex`: Please check [How to commit changes on GitHub using ShareLaTeX](https://wiki.ncsa.illinois.edu/display/BDEEP/How+to+commit+changes+on+GitHub+using+ShareLaTeX) to synchronize your working paper from ShareLaTeX to your project folder. NOTE: Please keep the original format!</br>
+`Abstract.tex`: Please check [How to commit changes on GitHub using ShareLaTeX](https://wiki.ncsa.illinois.edu/display/BDEEP/How+to+commit+changes+on+GitHub+using+ShareLaTeX),
+[How to remove your LaTeX files format in synchronization to GitHub](https://wiki.ncsa.illinois.edu/display/BDEEP/How+to+remove+your+LaTeX+files+format+in+synchronization+to+GitHub)to synchronize your working paper from ShareLaTeX to your project folder. NOTE: Please keep the original format!</br>
 `key_figures`: Please pick out figures that you want to show in the website and synchronize them to your project folder</br>
 
 
